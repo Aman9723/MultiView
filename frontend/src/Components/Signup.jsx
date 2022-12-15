@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { Sigup_google, Singup } from "../store/Auth/auth.action";
-import skill from "../img/multiview.png"
+import { Sigup_google, Singup } from "../Store/Auth/auth.action";
+import skill from "../Images/multiview.png";
 
 
 const SignUpStyling = styled.div`
@@ -80,7 +80,7 @@ const SignUpStyling = styled.div`
     width: 75%;
   }
 `;
-const SignupPage = () => {
+const Signup = () => {
   const token = useSelector((store) => store.auth.user.token);
   const navigate = useNavigate();
   console.log(token);
@@ -272,4 +272,4 @@ const SignupPage = () => {
   );
 };
 
-export default SignupPage;
+export default Signup;
