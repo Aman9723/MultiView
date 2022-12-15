@@ -18,16 +18,17 @@ const Movies = () => {
         <h3>You're watching a trailer</h3>
         <div>
           <iframe
-            width="560"
-            height="315"
+            width="60%"
+            height="500"
             src="https://www.youtube.com/embed/_8mQN7CMg8k"
             title="Zee5 video player"
             frameBorder="0"
+            autoPlay="allow"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
           ></iframe>
         </div>
-        <Text fontSize="xl" as="b" color="purple.600">
+        <Text fontSize="xl" as="b" color="white">
           Blurr
         </Text>
         <Flex as="b" color="purple.600" gap="10px">
@@ -59,16 +60,41 @@ const Movies = () => {
         </Flex>
 
         <br />
+        <br />
         <Menu>
-          <MenuButton as={Button} bg='none' color='white'  _hover='none' rightIcon={<ChevronDownIcon />}>
-          In this ZEE5 Original, Gayatri, a woman with a degenerative eye disorder, is slowly losing her eyesight. She, however, has to solve the mystery of her twin sister Gautami's death.
+          <MenuButton
+            as={Button}
+            bg="none"
+            color="white"
+            _hover="none"
+            rightIcon={<ChevronDownIcon />}
+          >
+            In this ZEE5 Original, Gayatri, a woman with a degenerative eye
+            disorder, is slowly losing her eyesight. She, however, has to solve
+            the mystery of her twin sister Gautami's death.
           </MenuButton>
-          <MenuList>
-            <MenuItem>Download</MenuItem>
-            <MenuItem>Create a Copy</MenuItem>
-            <MenuItem>Mark as Draft</MenuItem>
-            <MenuItem>Delete</MenuItem>
-            <MenuItem>Attend a Workshop</MenuItem>
+          <MenuList bg="black">
+            <MenuItem bg="black" border="none">
+              <Flex direction="column" gap="15px">
+                <Text>Cast:</Text>
+                <Flex direction="row" as="b" gap="35px" color="white">
+                  <Text>Gautami/Gayatri</Text>
+                  <Text>Neel</Text>
+                </Flex>
+                <Flex direction="" as="b" gap="50px" color="purple.600">
+                  <Text color="purple.600">Taapsee Pannu</Text>
+                  <Text color="purple.600">Gulshan Devaiah</Text>
+                </Flex>
+              </Flex>
+            </MenuItem>
+            <br/>
+            <MenuItem bg="black">
+              <Flex direction="column" gap="15px">
+              <Text>Creators:</Text>
+              <Text color="white">Director</Text>
+              <Text color="purple.600">Ajay Bahi</Text>
+              </Flex>
+            </MenuItem>
           </MenuList>
         </Menu>
       </div>
