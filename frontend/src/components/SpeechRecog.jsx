@@ -137,3 +137,4 @@ function SpeechRecog() {
 }
 
 export default SpeechRecog;
+

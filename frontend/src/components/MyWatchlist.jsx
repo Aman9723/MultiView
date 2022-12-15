@@ -7,3 +7,4 @@ const MyWatchlist = () => {
 };
 
 export default MyWatchlist;
+

@@ -17,8 +17,6 @@ const AllRoute = () => {
       <Route path="/movies" element={<Movies/>} />
       <Route path="/myprofile" element={<MyProfile/>} />
       <Route path="/myprofile/watchlist" element={<MyWatchlist/>} />
-      <Route path="/" element={<Home/>} />
-      
     </Routes>
   );
 };
