@@ -5,8 +5,10 @@ import { Link } from 'react-router-dom';
 const ProfileNavbar = ({ cur }) => {
     return (
         <VStack
-            border={'1px solid black'}
-            h="600px"
+            borderTop={'1px solid #241d2a'}
+            borderBottom={'1px solid #241d2a'}
+            borderl={'1px solid #241d2a'}
+            h="650px"
             bg="#1b1223"
             w="246px"
             p="24px 32px"
@@ -27,7 +29,7 @@ const ProfileNavbar = ({ cur }) => {
                             width={'2px'}
                             bg="white"
                             pos={'relative'}
-                            right="-132px"
+                            right="-129px"
                         ></Box>
                     ) : null}
                 </Flex>
@@ -47,7 +49,7 @@ const ProfileNavbar = ({ cur }) => {
                             width={'2px'}
                             bg="white"
                             pos={'relative'}
-                            right="-114px"
+                            right="-110px"
                         ></Box>
                     ) : null}
                 </Flex>
@@ -57,4 +59,3 @@ const ProfileNavbar = ({ cur }) => {
 };
 
 export default ProfileNavbar;
-
