@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { Sigup_google, Singup } from "../Store/Auth/auth.action";
+import { Sigup_google, Singup } from "../store/Auth/auth.action";
 import skill from "../Images/multiview.png";
 
 
