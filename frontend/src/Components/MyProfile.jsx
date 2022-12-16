@@ -5,17 +5,21 @@ import ProfileNavbar from './ProfileNavbar';
 import ProfileHeader from './ProfileHeader';
 import EditProfile from './EditProfile';
 
+// name and email id will be taken from the token or db
+
 const MyProfile = () => {
     const [width, setWidth] = React.useState(window.innerWidth);
     const breakPoint = 991;
 
     useEffect(() => {
+        // keeping in check windows innerwidth for responsiveness
         const handleWindowResize = () => setWidth(window.innerWidth);
         window.addEventListener('resize', handleWindowResize);
 
         return () => window.removeEventListener('resize', handleWindowResize);
     }, []);
 
+    // for conditional rendering of components
     const { show, changeShow } = useContext(ProfileContext);
 
     return (
@@ -30,7 +34,7 @@ const MyProfile = () => {
                 px={{ base: '20px', lg: '30px' }}
                 py={{ base: '20px', lg: '20px' }}
                 width={'100%'}
-                h={{ base: 'auto', sm: '650px' }}
+                h="650px"
                 borderTop={'1px solid #241d2a'}
                 borderBottom={'1px solid #241d2a'}
                 borderRight={'1px solid #241d2a'}
@@ -49,8 +53,25 @@ const MyProfile = () => {
                             borderRadius={'50%'}
                             bg="#8230c6"
                             boxSize={'20'}
-                        ></Flex>
+                            alignItems="center"
+                            justifyContent={'center'}
+                        >
+                            <Text
+                                fontSize={'18px'}
+                                color="white"
+                                fontWeight={700}
+                            >
+                                AM
+                            </Text>
+                        </Flex>
                         <Flex flexDir={'column'} gap="9px">
+                            <Text
+                                fontSize={'16px'}
+                                color="white"
+                                fontWeight={'700'}
+                            >
+                                Aman
+                            </Text>
                             <Text color={'#bdbdbd'} fontSize="14px">
                                 amansingh9723chauhan@gmail.com
                             </Text>
