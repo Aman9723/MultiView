@@ -1,0 +1,135 @@
+.nav {
+  border: 1px solid white;
+  background-color: black;
+  color: white;
+  padding: 6px 11px;
+  text-transform: uppercase;
+  font-weight: 400;
+  letter-spacing: 1px;
+  border-radius: 7px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.nav:hover {
+  background-color: white;
+  color: black;
+}
+.buy {
+  background-color: rgb(114, 57, 164);
+  border: none;
+  font-size: 15px;
+  color: white;
+  padding: 6px 11px;
+  text-transform: uppercase;
+  font-weight: 400;
+  letter-spacing: 1px;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+.buy:hover {
+  background-color: rgb(93, 14, 162);
+}
+
+.butt {
+  background-color: transparent !important;
+  color: white;
+}
+
+.butt:hover {
+  background-color: transparent !important;
+  color: white;
+}
+
+.drawer {
+  /* color: aqua !important; */
+  background-color: black !important;
+}
+
+.grey {
+  color: #3f3845;
+  font-weight: bold;
+  padding-top: 1.6rem;
+  padding-bottom: 0.7rem;
+  margin-left: 2rem;
+  font-size: 14px;
+}
+.white {
+  color: white;
+  font-weight: bold;
+  padding-top: 0.6rem;
+  padding-bottom: 0.3rem;
+  margin-left: 2rem;
+  font-size: 14px;
+}
+.close {
+  color: white;
+}
+.iconArrow {
+  color: white !important;
+  margin-left: 12rem;
+  font-size: 20px;
+}
+
+.iconArrowUpP {
+  color: white !important;
+  margin-left: 12.6rem;
+  font-size: 20px;
+}
+
+.iconArrowUpS {
+  color: white !important;
+  margin-left: 11.2rem;
+  font-size: 20px;
+}
+
+.iconArrowUpI {
+  color: white !important;
+  margin-left: 13.1rem;
+  font-size: 20px;
+}
+
+/* dropdown */
+
+.dropbtn:hover {
+  color: rgb(214, 97, 214);
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown {
+  display: inline-block;
+}
+
+.dropdownContent {
+  display: none;
+  position: absolute;
+  background-color: black;
+  color: white !important;
+  min-width: 180px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  margin-top: 20px;
+  margin-left: -3rem;
+}
+
+.dropdownContent a {
+  color: white;
+  padding: 15px 15px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+  /* border-bottom: 2px solid whitesmoke; */
+}
+
+.dropdownContent a:hover {
+  background-color: grey;
+  /* border-bottom: 2px solid whitesmoke; */
+  /* color: white; */
+}
+
+.dropdown:hover .dropdownContent {
+  display: block;
+}
