@@ -8,19 +8,21 @@ import {
   ModalFooter,
   ModalBody,
   ModalCloseButton,
-} from '@chakra-ui/react';
-import { Icon,ChevronUpIcon,InfoIcon,ChevronRightIcon } from "@chakra-ui/icons";
-import { Button, 
+  Button, 
   Text,
   ButtonGroup,
   Center,
    Card, 
-   CardHeader,
    CardBody, 
-   CardFooter,
    Wrap,
-   WrapItem
-  } from "@chakra-ui/react";
+   WrapItem,
+   Heading,
+   Box,
+   Stack,
+   StackDivider,
+   Badge
+} from '@chakra-ui/react';
+import { Icon,ChevronUpIcon,InfoIcon,ChevronRightIcon } from "@chakra-ui/icons";
 
 const PremiumPlan = () => {
 
@@ -57,25 +59,102 @@ const PremiumPlan = () => {
       
       <Modal size='lg' isCentered isOpen={isOpen} onClose={onClose}>
         {overlay}
-        <ModalContent bg='rgb(15,6,23)' color='whiteAlpha.800' >
-          <ModalHeader>Choose your premium plan</ModalHeader>
+        <ModalContent bg='rgb(15,6,23)' mt='400px' color='whiteAlpha.800' >
+          <ModalHeader>
+            <Center>Choose your premium plan</Center>
+          </ModalHeader>
           <ModalCloseButton />
           <ModalBody >
-          <Text>This is the premium page</Text>
-          <Wrap ml='14px' >
-          <WrapItem borderRadius='5px' w='140px' h='110px' borderWidth="1px">
-            <Center>
-              Box 1
+            <Card borderRight='none' color='whiteAlpha.700' w='auto' h='56'  overflow='hidden' overflowY='scroll' >         
+              <CardBody>
+                <Stack divider={<StackDivider />} spacing='4'>
+                  <Box>
+                    <Heading fontSize='10px'>
+                      Premium Content
+                    </Heading>
+                    <Text pt='2' fontSize='8px'>
+                    Movies, Web Series, TV Shows, Live TV, Downloads
+                    </Text>
+                  </Box>
+                  <Box>
+                    <Heading fontSize='10px'>
+                      Ad-free
+                    </Heading>
+                  </Box>
+                  <Box>
+                    <Heading fontSize='10px'>
+                      Device
+                    </Heading>
+                    <Text pt='2' fontSize='8px'>
+                    Mobile, TV and Laptop
+                    </Text>
+                  </Box>
+                  <Box>
+                    <Heading fontSize='10px'>
+                      No. of screens
+                    </Heading>
+                  </Box>
+                  <Box>
+                    <Heading fontSize='10px'>
+                      Max audio quality
+                    </Heading>
+                  </Box>
+                  <Box>
+                    <Heading fontSize='10px'>
+                      Max video quality
+                    </Heading>
+                  </Box>
+                </Stack>
+              </CardBody>
+            </Card>
+          <Wrap ml='14px'>
+          <WrapItem cursor='pointer' display='grid' borderRadius='5px' w='140px' h='110px' borderWidth="1px">
+            <Center ml='2' mt='6' fontSize='x-small'  >
+              Premium HD
+            </Center>
+            <Center ml='2' mt='2' fontSize='medium'  >
+              ₹399
+            </Center>
+            <Center ml='2' mt='-1' fontSize='small'  >
+              12 Months
             </Center>
           </WrapItem>
-          <WrapItem borderRadius='5px' w='140px' h='110px' borderWidth="1px">
-            <Center>
-              Box 2
+          <WrapItem cursor='pointer' display='grid' borderRadius='5px' w='140px' h='110px' borderWidth="1px">
+          <Stack direction='row'>
+              <Badge variant='solid' colorScheme='green'>
+                Save 30%
+              </Badge>
+            </Stack>
+            <Center ml='2' mt='-1' fontSize='x-small'  >
+              Premium HD
+            </Center>
+            <Center textDecoration='line-through' ml='2' mt='-3' fontSize='x-small'  >
+              ₹999
+            </Center>
+            <Center ml='2' mt='-2' fontSize='medium'  >
+              ₹699
+            </Center>
+            <Center ml='2' mt='-1' fontSize='small'  >
+              12 Months
             </Center>
           </WrapItem>
-          <WrapItem borderRadius='5px' w='140px' h='110px' borderWidth="1px">
-            <Center>
-              Box 3
+          <WrapItem  cursor='pointer' display='grid' borderRadius='5px' w='140px' h='110px' borderWidth="1px">
+          <Stack direction='row'>
+              <Badge variant='solid' colorScheme='green'>
+                Save 25%
+              </Badge>
+            </Stack>
+            <Center ml='2' mt='-1' fontSize='x-small'  >
+              Premium 4K
+            </Center>
+            <Center textDecoration='line-through' ml='2' mt='-3' fontSize='x-small'  >
+              ₹1999
+            </Center>
+            <Center ml='2' mt='-2' fontSize='medium'  >
+              ₹1499
+            </Center>
+            <Center ml='2' mt='-1' fontSize='smaller'  >
+              12 Months
             </Center>
           </WrapItem>
         </Wrap>
