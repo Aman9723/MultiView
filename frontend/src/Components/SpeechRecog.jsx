@@ -37,7 +37,6 @@ function SpeechRecog() {
         if (!result) changeSpeech('error', "Sorry, didn't get that...");
     };
 
-    console.log(speech);
 
     if (speech.status == 'listen') {
         return (
