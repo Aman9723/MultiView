@@ -199,7 +199,7 @@ function Navbar() {
             <Text className={styles.white}> Help Center</Text>
             <Text className={styles.white}> Content Redressal Mechanism</Text>
             <Text className={styles.white}> Terms of Use</Text>
-           
+            <Text className={styles.white}> Privacy Policy</Text>
             <Divider />
           </DrawerContent>
         </Drawer>
