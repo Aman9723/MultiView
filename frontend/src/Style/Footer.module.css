@@ -1,0 +1,8 @@
+.footer {
+    cursor: pointer;
+  }
+  
+  .footerHover:hover {
+    color: rgb(131, 48, 198);
+    cursor: pointer;
+  }
