@@ -26,7 +26,7 @@ const MyWatchlist = () => {
                 px={{ base: '20px', lg: '30px' }}
                 py={{ base: '20px', lg: '20px' }}
                 width={'100%'}
-                h={{ base: 'auto', sm: '650px' }}
+                h="650px"
                 borderTop={'1px solid #241d2a'}
                 borderBottom={'1px solid #241d2a'}
                 borderRight={'1px solid #241d2a'}

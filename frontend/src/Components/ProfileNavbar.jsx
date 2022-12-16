@@ -18,8 +18,8 @@ const ProfileNavbar = ({ cur }) => {
                 <Flex p="16px 0px" minW="170px" cursor={'pointer'}>
                     <Text
                         fontSize="16px"
-                        color="#828282"
-                        fontWeight={'400'}
+                        color={cur == 'profile' ? 'white' : '#828282'}
+                        fontWeight={cur == 'profile' ? '700' : '400'}
                         _hover={{ color: '#c1c1c1' }}
                     >
                         My Profile
@@ -29,7 +29,7 @@ const ProfileNavbar = ({ cur }) => {
                             width={'2px'}
                             bg="white"
                             pos={'relative'}
-                            right="-129px"
+                            right="-121px"
                         ></Box>
                     ) : null}
                 </Flex>
@@ -39,8 +39,8 @@ const ProfileNavbar = ({ cur }) => {
                     <Text
                         fontSize="16px"
                         _hover={{ color: '#c1c1c1' }}
-                        color="#828282"
-                        fontWeight={'400'}
+                        color={cur == 'watchlist' ? 'white' : '#828282'}
+                        fontWeight={cur == 'watchlist' ? '700' : '400'}
                     >
                         My Watchlist
                     </Text>
@@ -49,7 +49,7 @@ const ProfileNavbar = ({ cur }) => {
                             width={'2px'}
                             bg="white"
                             pos={'relative'}
-                            right="-110px"
+                            right="-102px"
                         ></Box>
                     ) : null}
                 </Flex>
