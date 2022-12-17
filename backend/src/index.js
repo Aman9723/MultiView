@@ -3,9 +3,11 @@ const mongoose = require('mongoose');
 const app = express();
 require('dotenv').config();
 const watchlistModel = require('./models/watchlist.model');
+const cors = require('cors');
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(cors());
 
 const port = process.env.PORT;
 

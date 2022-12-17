@@ -6,6 +6,8 @@ import axios from 'axios';
 import { useState } from 'react';
 import WatchlistBox from './WatchlistBox';
 
+const email = 'aman@gmail.com';
+
 const MyWatchlist = () => {
     const [width, setWidth] = useState(window.innerWidth);
     const [watchlist, setWatchlist] = useState([]);
@@ -23,14 +25,14 @@ const MyWatchlist = () => {
 
     // get user specific watchlist
     const getWatchlist = async (email) => {
-        let res = await axios.get(process.env.BACKEND_URL, { email });
+        let res = await axios.get(process.env.REACT_APP_BACKEND_URL, { email });
         res = res.data;
         return res;
     };
 
     // delete watchlist
     const deleteWatchlist = async (email, image) => {
-        await axios.delete(process.env.BACKEND_URL, { email, image });
+        await axios.delete(process.env.REACT_APP_BACKEND_URL, { email, image });
         getWatchlist(email).then((res) => setWatchlist(res));
     };
 
