@@ -17,7 +17,7 @@ MultiView is an Indian subscription video on-demand and over-the-top streaming s
 * Edit user profile
 
 ## ⚒️Tech Stack
-`React.js | Firebase | Redux | Chakra UI | Express | Node.js | MongoDB`
+`React.js | Firebase | Redux | Chakra UI | Express.js | Node.js | MongoDB`
 
 ## 🚀Get Started
 To install this repo locally use the following command:
