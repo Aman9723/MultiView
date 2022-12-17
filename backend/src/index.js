@@ -9,6 +9,10 @@ app.use(express.json());
 
 const port = process.env.PORT;
 
+app.get('/', (req, res) => {
+    return res.status(200).send('deployement is live');
+});
+
 // request for showing all watchlist of a user
 app.get('/watchlist', async (req, res) => {
     try {
