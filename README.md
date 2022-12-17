@@ -11,9 +11,10 @@ MultiView is an Indian subscription video on-demand and over-the-top streaming s
 ## ⚙️Features
 * Video player
 * Speech recognition
-* Searching, sorting, filtering
+* Searching, sorting and filtering
 * Authentication and authorization of user
 * CRUD operation for watchlist
+* Edit user profile
 
 ## ⚒️Tech Stack
 `React.js | Firebase | Redux | Chakra UI | Express | Node.js | MongoDB`
