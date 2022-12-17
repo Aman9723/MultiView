@@ -40,8 +40,8 @@ app.post('/watchlist', async (req, res) => {
 // request for removing watchlist of a user
 app.delete('/watchlist', async (req, res) => {
     try {
-        const { image } = req.body;
-        await watchlistModel.findOneAndDelete({ image });
+        const { image, email } = req.body;
+        await watchlistModel.findOneAndDelete({ email, image });
         return res.status(200).send('Deleted from watchlist');
     } catch (e) {
         return res.status(400).send(e.message);
