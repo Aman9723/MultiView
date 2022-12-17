@@ -1,0 +1,11 @@
+.item{
+    cursor: pointer;
+    display: grid;
+    border-radius: 5px;
+    width: 140px;
+    height: 110px;
+    border: 1px solid white;
+}
+.item:hover{
+    border: 3px solid white;
+}
