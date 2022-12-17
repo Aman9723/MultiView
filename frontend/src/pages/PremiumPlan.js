@@ -1,4 +1,4 @@
-import React from "react";
+import React ,{useState} from "react";
 import {
   Modal,
   useDisclosure,
@@ -20,12 +20,35 @@ import {
    Box,
    Stack,
    StackDivider,
-   Badge
+   Badge,
+   useToast
 } from '@chakra-ui/react';
 import { Icon,ChevronUpIcon,InfoIcon,ChevronRightIcon } from "@chakra-ui/icons";
+import styles from "../Styles/plan.module.css"
 
 const PremiumPlan = () => {
-
+ const toast = useToast();
+ const toastIdRef = React.useRef();
+ const [first,setFirst] = useState(399);
+ const [second,setSecond] = useState(699);
+ const [third,setThird] = useState(1499);
+ function addToast() {
+  toastIdRef.current = toast({ description: '₹399 is applied' })
+  const first = 399;
+};
+function secondToast(){
+  toastIdRef.current = toast({ description: '₹699 is applied' })
+  const second = 699;
+  setSecond(Math.floor(second-((second*30)/100)));
+}
+function thirdToast(){
+  toastIdRef.current = toast({ description: '₹1499 is applied' })
+  const third = 1499;
+  setThird(Math.floor(third-((third*25)/100)));
+}
+console.log(first)
+console.log(second);
+console.log(third);
   const OverlayOne = () => (
     <ModalOverlay
       bg='white'
@@ -41,7 +64,7 @@ const PremiumPlan = () => {
       backdropBlur='2px'
     />
   )
-
+   
   const { isOpen, onOpen, onClose } = useDisclosure()
   const [overlay, setOverlay] = React.useState(<OverlayOne />)
 
@@ -108,7 +131,7 @@ const PremiumPlan = () => {
               </CardBody>
             </Card>
           <Wrap ml='14px'>
-          <WrapItem cursor='pointer' display='grid' borderRadius='5px' w='140px' h='110px' borderWidth="1px">
+          <WrapItem onClick={addToast} type='WrapItem' className={styles.item} display='grid'>
             <Center ml='2' mt='6' fontSize='x-small'  >
               Premium HD
             </Center>
@@ -119,7 +142,7 @@ const PremiumPlan = () => {
               12 Months
             </Center>
           </WrapItem>
-          <WrapItem cursor='pointer' display='grid' borderRadius='5px' w='140px' h='110px' borderWidth="1px">
+          <WrapItem onClick={secondToast} type='WrapItem' className={styles.item} display='grid'>
           <Stack direction='row'>
               <Badge variant='solid' colorScheme='green'>
                 Save 30%
@@ -138,7 +161,7 @@ const PremiumPlan = () => {
               12 Months
             </Center>
           </WrapItem>
-          <WrapItem  cursor='pointer' display='grid' borderRadius='5px' w='140px' h='110px' borderWidth="1px">
+          <WrapItem onClick={thirdToast} type='WrapItem' className={styles.item} display='grid'>
           <Stack direction='row'>
               <Badge variant='solid' colorScheme='green'>
                 Save 25%
