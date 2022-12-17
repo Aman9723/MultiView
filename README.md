@@ -31,7 +31,7 @@ toast
 Clone the project
 
 ```bash
- 
+ https://github.com/Aman9723/money-tail-4785.git
 ```
 
 Go to the project directory
