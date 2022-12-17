@@ -6,19 +6,49 @@ import {
   MenuItem,
   MenuList,
   Text,
+  Box,
+  HStack,
+  SimpleGrid,
 } from "@chakra-ui/react";
 import React from "react";
 import { ChevronDownIcon } from "@chakra-ui/icons";
 import "./movies.Module.css";
+import axios from "axios";
+import styles from "../Style/LatestTest.module.css";
+import SwiperCore, {
+  Navigation,
+  Pagination,
+  Scrollbar,
+  A11y,
+  Grid,
+} from "swiper";
+import "swiper/css/navigation";
+import "swiper/css/scrollbar";
+import "swiper/css";
+import { FaPlay, FaShareAlt } from "react-icons/fa";
+import { NavLink } from "react-router-dom";
+import LatestMovies from "./LastestTest";
+import TopTenMovies from "./TopTenMovies";
 
 const Movies = () => {
+  const getData = () => {
+    return axios.get("https://fake-restful-api.onrender.com/leadingLadies");
+  };
+  const [data, getdatafromApi] = React.useState([]);
+
+  React.useEffect(() => {
+    getData().then((res) => getdatafromApi(res.data));
+  }, []);
+  console.log(data);
+
   return (
     <div className="bg">
+      <div className="video">
       <div className="right">
         <h3>You're watching a trailer</h3>
         <div>
           <iframe
-            width="60%"
+            width="95%"
             height="500"
             src="https://www.youtube.com/embed/_8mQN7CMg8k"
             title="Zee5 video player"
@@ -87,19 +117,70 @@ const Movies = () => {
                 </Flex>
               </Flex>
             </MenuItem>
-            <br/>
+            <br />
             <MenuItem bg="black">
               <Flex direction="column" gap="15px">
-              <Text>Creators:</Text>
-              <Text color="white">Director</Text>
-              <Text color="purple.600">Ajay Bahi</Text>
+                <Text>Creators:</Text>
+                <Text color="white">Director</Text>
+                <Text color="purple.600">Ajay Bahi</Text>
               </Flex>
             </MenuItem>
           </MenuList>
         </Menu>
       </div>
 
-      <div className="left">left</div>
+      <div className="left">
+        
+        <Text fontSize="xl">Recommended Movies For You</Text>
+
+        <div className={styles.outer}>
+          <SimpleGrid
+            columns={2}
+            spacing={10}
+            style={{
+              "overflow-y": "scroll",
+              "overflow": "-moz-scrollbars-none",
+              "scrollbar-width": "none",
+              "-ms-overflow-style": "none",
+              "height": "700px",
+            }}
+          >
+            {data.map((item) => (
+              <Box className={styles.movies} key={item.id}>
+                <div className={styles.mainlatest}>
+                  <div>
+                    <img src={item.url} className={styles.image} />
+                  </div>
+
+                  <div className={styles.share}>
+                    <Box className={styles.playIcon}>
+                      <FaPlay className={styles.play} />
+                      <Text className={styles.watch}>Watch</Text>
+                    </Box>
+
+                    {/* share icon */}
+                    <Box className={styles.lookshare}>
+                      <FaShareAlt className={styles.faShare} />
+                      <Text className={styles.look}>Share</Text>
+                    </Box>
+
+                    {/* title */}
+                    <Box className={styles.title}>
+                      <HStack>
+                        <Text>{item.popupTitle}</Text>
+                      </HStack>
+                    </Box>
+                  </div>
+                </div>
+              </Box>
+            ))}
+          </SimpleGrid>
+        </div>
+      </div>
+      </div>
+
+      <LatestMovies />
+      <TopTenMovies />
     </div>
   );
 };

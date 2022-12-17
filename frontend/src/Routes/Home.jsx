@@ -15,7 +15,6 @@ const Home = () => {
     <Box my={7}>
       <Navbar />
       <Slideshow />
-
       <LatestMovies />
       <TopTenMovies />
       <LeadingLadies />
