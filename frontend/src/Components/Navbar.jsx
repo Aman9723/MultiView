@@ -144,7 +144,7 @@ function Navbar() {
 
 
 
-        <NavLink className={styles.buy} to="/buyplan" end>
+        <NavLink className={styles.buy} to="/premiumplan" end>
           BUY PLAN
         </NavLink>
 
@@ -176,7 +176,7 @@ function Navbar() {
               {" "}
               Plans <ChevronUpIcon className={styles.iconArrowUpP} />
             </Text>
-            <Link to="/buyplan" className={styles.white}>
+            <Link to="/premiumplan" className={styles.white}>
               {" "}
               Buy Plan
             </Link>

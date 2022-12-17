@@ -43,7 +43,7 @@ function Slideshow() {
               <button className={styles.sliderwatchbtn}>
                 <FaPlay /> WATCH
               </button>
-              <NavLink to="/buyplan" className={styles.sliderbuybtn}>
+              <NavLink to="/premiumplan" className={styles.sliderbuybtn}>
                 <FaCrown /> BUY PLAN
               </NavLink>
               <span className={styles.slideritemtitle}>{item.title}</span>

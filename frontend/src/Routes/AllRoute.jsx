@@ -6,6 +6,7 @@ import Movies from '../Components/Movies';
 import MyProfile from '../Components/MyProfile';
 import MyWatchlist from '../Components/MyWatchlist';
 import Signup from '../Components/Signup';
+import PremiumPlan from '../Components/PremiumPlan';
 
 const AllRoute = () => {
     return (
@@ -16,6 +17,7 @@ const AllRoute = () => {
             <Route path="/movies" element={<Movies />} />
             <Route path="/myprofile" element={<MyProfile />} />
             <Route path="/myprofile/watchlist" element={<MyWatchlist />} />
+            <Route path="/premiumplan" element={<PremiumPlan />} />
         </Routes>
     );
 };
