@@ -94,7 +94,7 @@ function Footer() {
             Premium Movies
           </Text>
           <Text className={styles.footerHover}>
-            Kya Meri Sonam Gupta Bewafa Hai?
+            Bhramhastra
           </Text>
           <Text className={styles.footerHover}>Helmet</Text>
           <Text className={styles.footerHover}>200 Halla Ho</Text>

@@ -46,7 +46,7 @@ function Signup() {
   return (
     <>
       
-
+    <Navbar/>
       <Box mb={7} height="100%">
         <Text fontSize="xl" fontWeight="bold" lineHeight="3em" marginTop="2rem">
           Create a new account
@@ -119,6 +119,7 @@ function Signup() {
           </Text>
         </VStack>
       </Box>
+      
     </>
   );
 }
