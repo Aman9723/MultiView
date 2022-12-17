@@ -52,9 +52,8 @@ function Login() {
   };
 
   return (
-    
     <>
-     <Navbar/>
+     
       <Box mb={7}>
         <Text fontSize="xl" fontWeight="bold" lineHeight="3em" marginTop="2rem">
           Login to ZEE5

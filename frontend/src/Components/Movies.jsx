@@ -29,8 +29,6 @@ import { FaPlay, FaShareAlt } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 import LatestMovies from "./LastestTest";
 import TopTenMovies from "./TopTenMovies";
-import Navbar from "./Navbar";
-import Footer from "./Footer";
 
 const Movies = () => {
   const getData = () => {
@@ -44,8 +42,6 @@ const Movies = () => {
   console.log(data);
 
   return (
-    <>
-    <Navbar/>
     <div className="bg">
       <div className="video">
       <div className="right">
@@ -186,8 +182,6 @@ const Movies = () => {
       <LatestMovies />
       <TopTenMovies />
     </div>
-    <Footer/>
-    </>
   );
 };
 

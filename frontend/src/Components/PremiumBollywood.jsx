@@ -10,7 +10,6 @@ import { FaPlay, FaShareAlt } from "react-icons/fa";
 import { Box, Text, HStack } from "@chakra-ui/react";
 import { ChevronRightIcon } from "@chakra-ui/icons";
 import { NavLink } from "react-router-dom";
-import Navbar from "./Navbar";
 
 SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
 
@@ -27,7 +26,6 @@ function PremiumBollywood() {
 
   return (
     <>
-    <Navbar/>
       <NavLink to="/PremiumPlan">
         <Text className={styles.more}>
           More
