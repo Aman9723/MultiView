@@ -106,7 +106,7 @@ const { isLogin, setIsLogin, data } = useContext(AppContext);
           <DragHandleIcon boxSize={4} className={styles.dropbtn} />
 
           <div className={styles.dropdownContent}>
-           
+            <Link to="#">Webseries</Link>
             <Link to="#">Eduauraa</Link>
             <Link to="#">Premium</Link>
             <Link to="#">Live Tv</Link>
