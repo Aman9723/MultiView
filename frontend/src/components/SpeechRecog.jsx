@@ -1,7 +1,7 @@
 import React from 'react';
 import { BsMic } from 'react-icons/bs';
 import { BiErrorCircle } from 'react-icons/bi';
-import { SpeechContext } from '../contexts/SpeechContext';
+import { SpeechContext } from '../Context/SpeechContext';
 import {
     Box,
     Flex,
@@ -37,7 +37,6 @@ function SpeechRecog() {
         if (!result) changeSpeech('error', "Sorry, didn't get that...");
     };
 
-    console.log(speech);
 
     if (speech.status == 'listen') {
         return (
@@ -53,6 +52,7 @@ function SpeechRecog() {
                 top="0px"
                 zIndex={1}
                 gap="40px"
+                
             >
                 <Box
                     border={'1px solid white'}
@@ -65,6 +65,7 @@ function SpeechRecog() {
                     display="flex"
                     alignItems={'center'}
                     justifyContent="center"
+                    
                 >
                     <Flex>
                         <BsMic></BsMic>
@@ -82,7 +83,7 @@ function SpeechRecog() {
         );
     } else if (speech.status == 'empty') {
         return (
-            <BsMic
+            <BsMic className='mic'
                 size={'35'}
                 onClick={() => {
                     recognition.start();
@@ -137,3 +138,4 @@ function SpeechRecog() {
 }
 
 export default SpeechRecog;
+

@@ -5,8 +5,10 @@ import { Link } from 'react-router-dom';
 const ProfileNavbar = ({ cur }) => {
     return (
         <VStack
-            border={'1px solid black'}
-            h="600px"
+            borderTop={'1px solid #241d2a'}
+            borderBottom={'1px solid #241d2a'}
+            borderl={'1px solid #241d2a'}
+            h="650px"
             bg="#1b1223"
             w="246px"
             p="24px 32px"
@@ -16,8 +18,8 @@ const ProfileNavbar = ({ cur }) => {
                 <Flex p="16px 0px" minW="170px" cursor={'pointer'}>
                     <Text
                         fontSize="16px"
-                        color="#828282"
-                        fontWeight={'400'}
+                        color={cur == 'profile' ? 'white' : '#828282'}
+                        fontWeight={cur == 'profile' ? '700' : '400'}
                         _hover={{ color: '#c1c1c1' }}
                     >
                         My Profile
@@ -27,7 +29,7 @@ const ProfileNavbar = ({ cur }) => {
                             width={'2px'}
                             bg="white"
                             pos={'relative'}
-                            right="-132px"
+                            right="-121px"
                         ></Box>
                     ) : null}
                 </Flex>
@@ -37,8 +39,8 @@ const ProfileNavbar = ({ cur }) => {
                     <Text
                         fontSize="16px"
                         _hover={{ color: '#c1c1c1' }}
-                        color="#828282"
-                        fontWeight={'400'}
+                        color={cur == 'watchlist' ? 'white' : '#828282'}
+                        fontWeight={cur == 'watchlist' ? '700' : '400'}
                     >
                         My Watchlist
                     </Text>
@@ -47,7 +49,7 @@ const ProfileNavbar = ({ cur }) => {
                             width={'2px'}
                             bg="white"
                             pos={'relative'}
-                            right="-114px"
+                            right="-102px"
                         ></Box>
                     ) : null}
                 </Flex>
