@@ -1,4 +1,4 @@
-import styles from "../Styles/payment.module.css";
+import styles from "../Style/payment.module.css";
 import { Avatar, AvatarGroup,Divider,Button } from '@chakra-ui/react'
 import { AiOutlineUser } from "react-icons/ai";
 import { ArrowBackIcon, CheckCircleIcon } from "@chakra-ui/icons"
@@ -74,4 +74,4 @@ function Payment() {
         </>
     )
 }
-export default Paymnet;
+export default Payment;

@@ -26,7 +26,7 @@ const AllRoute = () => {
             <Route path="/myprofile" element={<MyProfile />} />
             <Route path="/myprofile/watchlist" element={<MyWatchlist />} />
             <Route path="/premiumplan" element={<PremiumPlan />} />
-            {/* <Route path="/payment" element={<Payment />} /> */}
+            <Route path="/payment" element={<Payment />} />
         </Routes>
     );
 };
