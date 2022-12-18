@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import {
     Modal,
     useDisclosure,
@@ -31,8 +31,10 @@ import {
 } from '@chakra-ui/icons';
 import styles from '../Style/plan.module.css';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const PremiumPlan = () => {
+    const navigate = useNavigate();
     const toast = useToast();
     const toastIdRef = React.useRef();
     const [first, setFirst] = useState(399);
@@ -69,14 +71,23 @@ const PremiumPlan = () => {
             backdropInvert="80%"
             backdropBlur="2px"
         />
+        
     );
 
     const { isOpen, onOpen, onClose } = useDisclosure();
     const [overlay, setOverlay] = React.useState(<OverlayOne />);
+    // useEffect(()=>{
+    //     window.location.reload();
+    //     return false;
+    // })
+    window.onload = function() {
+        setOverlay(<OverlayTwo />)
+        onOpen();
+    };
 
     return (
         <>
-            <Button
+            {/* <Button
                 ml="4"
                 onClick={() => {
                     setOverlay(<OverlayTwo />);
@@ -84,7 +95,11 @@ const PremiumPlan = () => {
                 }}
             >
                 Buy Plan
-            </Button>
+            </Button> */}
+            {/* window.onload = function() {
+                setOverlay(<OverlayTwo />)
+                onOpen();
+            }; */}
 
             <Modal size="lg" isCentered isOpen={isOpen} onClose={onClose}>
                 {overlay}
