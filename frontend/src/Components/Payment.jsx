@@ -1,62 +1,77 @@
-import {
-    Button,
-    FormControl,
-    FormLabel,
-    Input,
-    Select,
-    Text,
-  } from "@chakra-ui/react";
-  import React, { useState } from "react";
-  
+import styles from "../Styles/payment.module.css";
+import { Avatar, AvatarGroup,Divider,Button } from '@chakra-ui/react'
+import { AiOutlineUser } from "react-icons/ai";
+import { ArrowBackIcon, CheckCircleIcon } from "@chakra-ui/icons"
+import { Icon } from "@chakra-ui/react";
+function Payment() {
 
-  
-  const Payment = () => {
-      let id;
-      const [loading, setLoading ] = useState(false);
-      
-      
-      const handleSubmit = () => {
-          if(id){
-              clearTimeout(id);
-          }
-          id = setTimeout(() => {
-              alert("Your Payment has been SuccessFull");
-          }, 1000)
-          setLoading(false);
-      }
     return (
-      <div>
-        <Text fontSize="4xl" as="b" color="purple.600">
-          Make PaymentDetails
-        </Text>
-  
-        <form onSubmit={handleSubmit}>
-          <FormControl isRequired w="70%" margin="auto" mt="100px">
-            <FormLabel>Select Payment Method</FormLabel>
-            <Select placeholder="Select">
-              <option>UPI</option>
-              <option>Credit / Debit Card</option>
-            </Select>
-            <Text fontSize="2xl" as="b" color="purple.600">
-              Enter Credit / Debit Card Details
-            </Text>
-            <FormLabel mt="50px">Enter Card Number</FormLabel>
-            <Input placeholder="Enter Card Number" />
-            <FormLabel>Expiry Date</FormLabel>
-            <Input
-              type="datetime-local"
-              size="md"
-              placeholder="Select Date and Time"
-            />
-            <FormLabel>Enter CVV</FormLabel>
-            <Input type="password" placeholder="Enter CVV" />
-          </FormControl>
-          <Button mt={4} ml='40%' colorScheme="purple" type="submit">
-            Submit
-          </Button>
-        </form>
-      </div>
-    );
-  };
-  
-  export default Payment;
+        <>
+            <div className={styles.payment}>
+                <div className={styles.head}>
+                    <img src="https://www.zee5.com/images/ZEE5_logo.svg?ver=2.52.66" alt="" />
+                    <div className={styles.user}>
+                        <AvatarGroup spacing='1rem'>
+                            <Avatar bg='black' icon={<AiOutlineUser fontSize='1.5rem' />} />
+                        </AvatarGroup>
+                        <h1>Welcome rajan <br /> rajanrao@gmail.com </h1>
+                    </div>
+                </div>
+                <div className={styles.middle}>
+                    <div className={styles.midhead}>
+                        <h2> <Icon as={ArrowBackIcon} /> Make Payment</h2>
+                    </div>
+                    <div className={styles.payfirst}>
+                        <div>
+                            <h1>Premium HD</h1>
+                            <h2>Premium HD</h2>
+                        </div>
+                        <div>
+                            <h1>₹999  <Icon as={CheckCircleIcon} color='green' /></h1>
+                        </div>
+                    </div>
+                    <div className={styles.paysec}>
+                        <div>
+                            <h1>Logged In</h1>
+                            <p>rajanrao@gmail.com </p>
+                            <AvatarGroup mt='3' ml='4' spacing='1rem'>
+                                <Avatar bg='rgb(240,219,234)' icon={<AiOutlineUser fontSize='1.5rem' />} />
+                            </AvatarGroup>
+                        </div>
+                    </div>
+                    <div className={styles.midpart}>
+                        <div className={styles.insideMidPart}>
+                            <div className={styles.firstpart}>
+                                <button>UPI</button>
+                                <button>Credit Card/Debit</button>
+                                <button>Wallets</button>
+                                <button>Net Banking</button>
+                            </div>
+                            <div className={styles.secpart}>
+                                <p>UPI</p>
+                                <Divider mt='2' />
+                                <h2>UPI ID/VPA</h2>
+                                <Divider mt='5' />
+                                <input type='text' placeholder="e.g. rajan@ybl" />
+                                <Divider />
+                                <Button bg='green.600' ml='-64' w='64' h='14' >Pay Now</Button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className={styles.foot2}>
+                    <Divider paddingTop='12' color='whiteAlpha.900' bg='whatsapp.900' />
+                    <div className={styles.diflex}>
+                        <div>
+                            <p>Copyright © 2022 Zee Entertainment Enterprises Ltd. All rights reserved.</p>
+                        </div>
+                        <div>
+                            <p>About us | Help Center | Privacy Policy | Terms of Use | Preferences</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </>
+    )
+}
+export default Paymnet;
