@@ -4,7 +4,7 @@ import React from 'react';
 const ProfileHeader = ({ text }) => {
     return (
         <Flex flexDir="column" width={'100%'} marginBottom="30px">
-            <Text fontSize={'30px'} fontWeight="700">
+            <Text fontSize={'30px'} fontWeight="700" color={'white'}>
                 {text}
             </Text>
         </Flex>

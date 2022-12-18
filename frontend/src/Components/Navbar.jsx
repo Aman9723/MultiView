@@ -17,7 +17,7 @@ import {
 import { Link, NavLink } from "react-router-dom";
 import { FaBars, FaCrown, FaRegUser } from "react-icons/fa";
 import { useContext } from "react";
-// import { AppContext } from "../Context/AppContext";
+import { AppContext } from "../Context/AppContext";
 import { FiDownload, FiHelpCircle, FiSettings } from "react-icons/fi";
 import { FcAbout } from "react-icons/fc";
 import { RiLogoutCircleRLine } from "react-icons/ri";
@@ -39,6 +39,7 @@ import {
   DrawerCloseButton,
   useDisclosure,
 } from "@chakra-ui/react";
+import SpeechRecog from "./SpeechRecog";
 
 const baseStyle = {
   color: "gray",
@@ -53,7 +54,7 @@ const activeStyle = {
 };
 
 function Navbar() {
-  // const { isLogin, setIsLogin, data } = useContext(AppContext);
+const { isLogin, setIsLogin, data } = useContext(AppContext);
 
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = useRef();
@@ -127,8 +128,10 @@ function Navbar() {
         placeholder="🔍 Search for Movies, Shows, Channels etc. "
       />
 
+<SpeechRecog/>
+
       <HStack gap={2}>
-        {/* {isLogin ? (
+        {isLogin ? (
           <Text className={styles.nav} onClick={() => setIsLogin(!isLogin)} end>
             Logout
           </Text>
@@ -136,14 +139,11 @@ function Navbar() {
           <NavLink className={styles.nav} to="/login" end>
             Login
           </NavLink>
-        )} */}
+        )}
         
-        <NavLink className={styles.nav} to="/login" end>
-            Login
-          </NavLink>
+       
 
-
-
+       
         <NavLink className={styles.buy} to="/premiumplan" end>
           BUY PLAN
         </NavLink>
@@ -204,6 +204,7 @@ function Navbar() {
           </DrawerContent>
         </Drawer>
       </HStack>
+      
     </Flex>
   );
 }

@@ -1,4 +1,4 @@
-import {
+ import {
   Button,
   Flex,
   Menu,
@@ -9,6 +9,7 @@ import {
   Box,
   HStack,
   SimpleGrid,
+  Spacer,
 } from "@chakra-ui/react";
 import React from "react";
 import { ChevronDownIcon } from "@chakra-ui/icons";
@@ -29,6 +30,8 @@ import { FaPlay, FaShareAlt } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 import LatestMovies from "./LastestTest";
 import TopTenMovies from "./TopTenMovies";
+import Navbar from "./Navbar";
+import Footer from "./Footer";
 
 const Movies = () => {
   const getData = () => {
@@ -42,6 +45,8 @@ const Movies = () => {
   console.log(data);
 
   return (
+    <>
+    <Navbar/>
     <div className="bg">
       <div className="video">
       <div className="right">
@@ -99,11 +104,11 @@ const Movies = () => {
             _hover="none"
             rightIcon={<ChevronDownIcon />}
           >
-            In this ZEE5 Original, Gayatri, a woman with a degenerative eye
-            disorder, is slowly losing her eyesight. She, however, has to solve
-            the mystery of her twin sister Gautami's death.
+            <Text>In this ZEE5 Original, Gayatri, a woman with a degenerative eye
+            disorder, is slowly losing her eyesight.<br/> She, however, has to solve
+            the mystery of her twin sister Gautami's death.</Text>
           </MenuButton>
-          <MenuList bg="black">
+          <MenuList mb='5rem' bg="black" border='none'>
             <MenuItem bg="black" border="none">
               <Flex direction="column" gap="15px">
                 <Text>Cast:</Text>
@@ -178,10 +183,12 @@ const Movies = () => {
         </div>
       </div>
       </div>
-
+      
       <LatestMovies />
       <TopTenMovies />
     </div>
+    <Footer/>
+    </>
   );
 };
 

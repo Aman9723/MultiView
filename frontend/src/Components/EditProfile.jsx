@@ -1,4 +1,5 @@
 import {
+    Box,
     Button,
     Flex,
     FormControl,
@@ -7,9 +8,10 @@ import {
     Input,
     Text,
     Tooltip,
+    useToast,
 } from '@chakra-ui/react';
 import React, { useContext } from 'react';
-import { ProfileContext } from '../contexts/ProfileContext';
+import { ProfileContext } from '../Context/ProfileContext';
 import { AiOutlineInfoCircle } from 'react-icons/ai';
 import { useState } from 'react';
 
@@ -29,6 +31,7 @@ function edit(data) {
 const EditProfile = () => {
     const { changeShow } = useContext(ProfileContext);
     const [data, setData] = useState(initState);
+    const toast = useToast();
 
     // handle input changes
     const handleChange = (e) => {
@@ -139,7 +142,17 @@ const EditProfile = () => {
                     color="white"
                     p="20px 50px"
                     fontSize={'14px'}
-                    onClick={() => edit(data)}
+                    onClick={() => {
+                        edit(data);
+                        toast({
+                            render: () => (
+                                <Box color="white" p={3} bg="grey">
+                                    Changes saved successfully
+                                </Box>
+                            ),
+                            duration: 3000,
+                        });
+                    }}
                     disabled={!(data.name && data.dob && data.gender)}
                 >
                     Save Changes

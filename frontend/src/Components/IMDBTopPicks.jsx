@@ -28,12 +28,12 @@ function IMDBTopPicks() {
 
   return (
     <>
-      <NavLink to="/movies">
+      {/* <NavLink to="/PremiumPlan">
         <Text className={styles.more}>
           More
           <ChevronRightIcon w={6} h={6} color="white" fontWeight="bold" />
         </Text>
-      </NavLink>
+      </NavLink> */}
       <Text className={styles.latestTen}>IMDB Top Picks</Text>
 
       <div className={styles.outer}>

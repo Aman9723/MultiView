@@ -13,7 +13,7 @@ import PremiumBollywood from "../Components/PremiumBollywood";
 const Home = () => {
   return (
     <Box my={7}>
-      <Navbar />
+     <Navbar />
       <Slideshow />
       <LatestMovies />
       <TopTenMovies />
@@ -21,7 +21,7 @@ const Home = () => {
       <IMDBTopPicks />
       <OriginalWeb />
       <PremiumBollywood />
-      <Footer />
+     <Footer />
     </Box>
   );
 };

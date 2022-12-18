@@ -29,7 +29,8 @@ import {
     InfoIcon,
     ChevronRightIcon,
 } from '@chakra-ui/icons';
-import styles from './plan.module.css';
+import styles from '../Style/plan.module.css';
+import { Link } from 'react-router-dom';
 
 const PremiumPlan = () => {
     const toast = useToast();
@@ -73,13 +74,18 @@ const PremiumPlan = () => {
     const { isOpen, onOpen, onClose } = useDisclosure();
     const [overlay, setOverlay] = React.useState(<OverlayOne />);
 
-    React.useEffect(() => {
-        setOverlay(<OverlayTwo />);
-        onOpen();
-    });
-
     return (
         <>
+            <Button
+                ml="4"
+                onClick={() => {
+                    setOverlay(<OverlayTwo />);
+                    onOpen();
+                }}
+            >
+                Buy Plan
+            </Button>
+
             <Modal size="lg" isCentered isOpen={isOpen} onClose={onClose}>
                 {overlay}
                 <ModalContent
@@ -256,15 +262,21 @@ const PremiumPlan = () => {
                             variant="link"
                             spacing="10"
                         >
-                            <Button w="56" textColor="whiteAlpha.800" mt="3">
-                                Pay Using UPI{' '}
-                                <Icon
-                                    w={8}
-                                    h={8}
-                                    color="whiteAlpha.800"
-                                    as={ChevronUpIcon}
-                                ></Icon>{' '}
-                            </Button>
+                            <Link to="/payment">
+                                <Button
+                                    w="56"
+                                    textColor="whiteAlpha.800"
+                                    mt="3"
+                                >
+                                    Pay Using UPI{' '}
+                                    <Icon
+                                        w={8}
+                                        h={8}
+                                        color="whiteAlpha.800"
+                                        as={ChevronUpIcon}
+                                    ></Icon>{' '}
+                                </Button>
+                            </Link>
                             <Button
                                 w="56"
                                 textColor="whiteAlpha.800"
@@ -272,7 +284,8 @@ const PremiumPlan = () => {
                                 bg="rgb(130,48,198)"
                                 colorScheme="black"
                             >
-                                Buy Premium
+                                {' '}
+                                <Link to="/Payment">Buy Premium </Link>{' '}
                             </Button>
                         </ButtonGroup>
                     </ModalFooter>

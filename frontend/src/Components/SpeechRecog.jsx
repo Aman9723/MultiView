@@ -1,12 +1,8 @@
 import React from 'react';
 import { BsMic } from 'react-icons/bs';
 import { BiErrorCircle } from 'react-icons/bi';
-import { SpeechContext } from '../contexts/SpeechContext';
-import {
-    Box,
-    Flex,
-    keyframes,
-} from '@chakra-ui/react';
+import { SpeechContext } from '../Context/SpeechContext';
+import { Box, Flex, keyframes } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 
 function SpeechRecog() {
@@ -36,7 +32,6 @@ function SpeechRecog() {
     recognition.onend = (e) => {
         if (!result) changeSpeech('error', "Sorry, didn't get that...");
     };
-
 
     if (speech.status == 'listen') {
         return (
@@ -82,7 +77,8 @@ function SpeechRecog() {
     } else if (speech.status == 'empty') {
         return (
             <BsMic
-                size={'35'}
+                className="mic"
+                size={'25'}
                 onClick={() => {
                     recognition.start();
                     changeSpeech('listen', 'I am listening...');
@@ -136,4 +132,3 @@ function SpeechRecog() {
 }
 
 export default SpeechRecog;
-

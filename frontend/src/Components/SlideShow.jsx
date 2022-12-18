@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { FaCrown, FaPlay } from "react-icons/fa";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import styles from "../Style/Slider.module.css";
 
 function Slideshow() {
@@ -34,15 +34,15 @@ function Slideshow() {
 
   return (
     <div className={styles.slider}>
-      <IoIosArrowBack className="arrow left" onClick={prevSlide} />
+      <IoIosArrowBack className="arrow-left" onClick={prevSlide} />
       {data.map(
         (item, index) =>
           index === current && (
             <div key={index}>
               <img src={item.url} alt={item.title} />
-              <button className={styles.sliderwatchbtn}>
+              <Link to="/movies"><button className={styles.sliderwatchbtn}>
                 <FaPlay /> WATCH
-              </button>
+              </button></Link>
               <NavLink to="/premiumplan" className={styles.sliderbuybtn}>
                 <FaCrown /> BUY PLAN
               </NavLink>
@@ -50,7 +50,7 @@ function Slideshow() {
             </div>
           )
       )}
-      <IoIosArrowForward className="arrow right" onClick={nextSlide} />
+      <IoIosArrowForward className="arrow-right" onClick={nextSlide} />
     </div>
   );
 }
