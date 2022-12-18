@@ -98,7 +98,7 @@ const { isLogin, setIsLogin, data } = useContext(AppContext);
         style={({ isActive }) => (isActive ? activeStyle : baseStyle)}
         end
       >
-        Movies
+     
       </NavLink>
 
       <Square color="white">
