@@ -27,7 +27,7 @@ function Payment() {
                             <h2>Premium HD</h2>
                         </div>
                         <div>
-                            <h1>₹999  <Icon as={CheckCircleIcon} color='green' /></h1>
+                            <h1>₹699  <Icon as={CheckCircleIcon} color='green' /></h1>
                         </div>
                     </div>
                     <div className={styles.paysec}>

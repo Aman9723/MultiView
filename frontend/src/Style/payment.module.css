@@ -123,7 +123,7 @@
     color: rgb(67, 196, 147);
     border-radius: 5px;
 }
-firstpart>button:hover{
+.firstpart>button:hover{
     background-color: rgb(255,255,255);
     color: rgb(67, 196, 147);
     border-radius: 5px;
