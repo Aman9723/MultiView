@@ -27,7 +27,7 @@ function Payment() {
                             <h2>Premium HD</h2>
                         </div>
                         <div>
-                            <h1>₹999  <Icon as={CheckCircleIcon} color='green' /></h1>
+                            <h1>₹699  <Icon as={CheckCircleIcon} color='green' /></h1>
                         </div>
                     </div>
                     <div className={styles.paysec}>
@@ -54,7 +54,7 @@ function Payment() {
                                 <Divider mt='5' />
                                 <input type='text' placeholder="e.g. rajan@ybl" />
                                 <Divider />
-                                <Button bg='green.600' ml='-64' w='64' h='14' >Pay Now</Button>
+                                <Button bg='green.600'  w='52' h='14' >Pay Now</Button>
                             </div>
                         </div>
                     </div>
