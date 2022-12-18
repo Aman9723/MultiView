@@ -1,5 +1,5 @@
 body {
-    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2jR33s80-CFM2T5jYtsV1AzniXxAfLFkYqg&usqp=CAU");
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2jR33s80-CFM2T5jYtsV1AzniXxAfLFkYqg&usqp=CAU");
   background-size: cover;
   background-attachment: fixed;
   
@@ -13,6 +13,6 @@ body {
     height: 110px;
     border: 1px solid white;
 }
-/* .item:hover{
+.item:hover{
     border: 3px solid white;
-} */
+}

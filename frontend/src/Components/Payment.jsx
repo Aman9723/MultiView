@@ -1,10 +1,29 @@
+import React from "react";
 import styles from "../Style/payment.module.css";
 import { Avatar, AvatarGroup,Divider,Button } from '@chakra-ui/react'
 import { AiOutlineUser } from "react-icons/ai";
+import { useToast } from '@chakra-ui/react'
 import { ArrowBackIcon, CheckCircleIcon } from "@chakra-ui/icons"
-import { Icon } from "@chakra-ui/react";
+import { Icon,Spinner  } from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
 function Payment() {
-
+    const toast = useToast()
+    const toastIdRef = React.useRef()
+    const navigate = useNavigate();
+  
+    function addToast() {
+        setTimeout(()=>{
+            <Spinner
+            thickness='4px'
+            speed='0.65s'
+            emptyColor='gray.200'
+            color='blue.500'
+            size='xl'
+          />
+        },2000)
+      toastIdRef.current = toast({ position:'top', title:' A confirmation message (SMS & Email) will be sent to you after a successful transaction.',description: 'Thanks and enjoy!',status:'success',duration:'5000' })
+      navigate("/")
+    }
     return (
         <>
             <div className={styles.payment}>
@@ -54,7 +73,7 @@ function Payment() {
                                 <Divider mt='5' />
                                 <input type='text' placeholder="e.g. rajan@ybl" />
                                 <Divider />
-                                <Button bg='green.600'  w='52' h='14' >Pay Now</Button>
+                                <Button onClick={addToast} bg='green.600'  w='52' h='14' >Pay Now</Button>
                             </div>
                         </div>
                     </div>
