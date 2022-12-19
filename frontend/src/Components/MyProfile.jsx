@@ -1,6 +1,6 @@
 import { Divider, Flex, Text } from '@chakra-ui/react';
 import React, { useContext, useEffect } from 'react';
-import { ProfileContext } from '../contexts/ProfileContext';
+import { ProfileContext } from '../Context/ProfileContext';
 import ProfileNavbar from './ProfileNavbar';
 import ProfileHeader from './ProfileHeader';
 import EditProfile from './EditProfile';

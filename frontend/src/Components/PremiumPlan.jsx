@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import {useNavigate } from "react-router-dom";
+import React, { useState,useEffect } from 'react';
 import {
     Modal,
     useDisclosure,
@@ -23,7 +22,6 @@ import {
     StackDivider,
     Badge,
     useToast,
-   
 } from '@chakra-ui/react';
 import {
     Icon,
@@ -31,16 +29,17 @@ import {
     InfoIcon,
     ChevronRightIcon,
 } from '@chakra-ui/icons';
-import styles from "../Style/plan.module.css";
-import Link from "react";
+import styles from '../Style/plan.module.css';
+import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const PremiumPlan = () => {
+    const navigate = useNavigate();
     const toast = useToast();
     const toastIdRef = React.useRef();
     const [first, setFirst] = useState(399);
     const [second, setSecond] = useState(699);
     const [third, setThird] = useState(1499);
-    const navigate = useNavigate();
     function addToast() {
         toastIdRef.current = toast({ description: '₹399 is applied' });
         const first = 399;
@@ -72,33 +71,47 @@ const PremiumPlan = () => {
             backdropInvert="80%"
             backdropBlur="2px"
         />
+        
     );
 
     const { isOpen, onOpen, onClose } = useDisclosure();
     const [overlay, setOverlay] = React.useState(<OverlayOne />);
-
-    React.useEffect(() => {
-        setOverlay(<OverlayTwo />);
+    // useEffect(()=>{
+    //     window.location.reload();
+    //     return false;
+    // })
+    window.onload = function() {
+        setOverlay(<OverlayTwo />)
         onOpen();
-    });
-
-    // const handlePayment = () =>{
-    //     navigate("/payment");
-    // }
+    };
 
     return (
         <>
-            <Modal size="lg" isCentered isOpen={isOpen} onClose={onClose} border="1px">
+            {/* <Button
+                ml="4"
+                onClick={() => {
+                    setOverlay(<OverlayTwo />);
+                    onOpen();
+                }}
+            >
+                Buy Plan
+            </Button> */}
+            {/* window.onload = function() {
+                setOverlay(<OverlayTwo />)
+                onOpen();
+            }; */}
+
+            <Modal size="lg" isCentered isOpen={isOpen} onClose={onClose}>
                 {overlay}
                 <ModalContent
                     bg="rgb(15,6,23)"
-                    // mt="400px"
+                    mt="400px"
                     color="whiteAlpha.800"
                 >
                     <ModalHeader>
                         <Center>Choose your premium plan</Center>
                     </ModalHeader>
-                    <ModalCloseButton/>
+                    <ModalCloseButton />
                     <ModalBody>
                         <Card
                             borderRight="none"
@@ -264,15 +277,21 @@ const PremiumPlan = () => {
                             variant="link"
                             spacing="10"
                         >
-                            <Button w="56" textColor="whiteAlpha.800" mt="3">
-                                Pay Using UPI{' '}
-                                <Icon
-                                    w={8}
-                                    h={8}
-                                    color="whiteAlpha.800"
-                                    as={ChevronUpIcon}
-                                ></Icon>{' '}
-                            </Button>
+                            <Link to="/payment">
+                                <Button
+                                    w="56"
+                                    textColor="whiteAlpha.800"
+                                    mt="3"
+                                >
+                                    Pay Using UPI{' '}
+                                    <Icon
+                                        w={8}
+                                        h={8}
+                                        color="whiteAlpha.800"
+                                        as={ChevronUpIcon}
+                                    ></Icon>{' '}
+                                </Button>
+                            </Link>
                             <Button
                                 w="56"
                                 textColor="whiteAlpha.800"
@@ -280,7 +299,8 @@ const PremiumPlan = () => {
                                 bg="rgb(130,48,198)"
                                 colorScheme="black"
                             >
-                                Buy Premium
+                                {' '}
+                                <Link to="/Payment">Buy Premium </Link>{' '}
                             </Button>
                         </ButtonGroup>
                     </ModalFooter>
