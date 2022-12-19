@@ -10,6 +10,7 @@ import {
   WrapItem,
   Wrap,
   useToast,
+  Center,
 } from "@chakra-ui/react";
 import { FcGoogle } from "react-icons/fc";
 import { DiApple } from "react-icons/di";
@@ -55,13 +56,21 @@ function Login() {
     <>
      <Navbar/>
       <Box mb={7}>
+        <Center>
+
+     
         <Text fontSize="xl" fontWeight="bold" lineHeight="3em" marginTop="2rem">
           Login to ZEE5
         </Text>
+        </Center>
+        <Center>
         <Text lineHeight="1.2em" color="gray">
           Login to continue enjoying uninterrupted video and <br /> personalised
           experience
+          
         </Text>
+        </Center>
+       
         <VStack gap={7} mt={7} mb={4}>
           <HStack gap={4}>
             <Flex
@@ -118,12 +127,14 @@ function Login() {
             fontWeight="bold"
             pb={1}
             color="white"
+            
           >
             or
           </Button>
         </VStack>
         <VStack gap={4}>
           <Input
+          textAlign={"center"}
             value={text.email}
             onChange={(event) =>
               setText({ ...text, email: event.target.value })
@@ -146,7 +157,8 @@ function Login() {
             variant="outline"
             borderColor="rgb(111, 111, 111)"
             _hover="transparent"
-            color="gray"
+            color="white"
+            backgroundColor={"green"}
           >
             Login
           </Button>

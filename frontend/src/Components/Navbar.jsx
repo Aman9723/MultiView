@@ -13,6 +13,7 @@ import {
   Divider,
   Square,
   Img,
+  Hide,
 } from "@chakra-ui/react";
 import { Link, NavLink } from "react-router-dom";
 import { FaBars, FaCrown, FaRegUser } from "react-icons/fa";
@@ -54,7 +55,7 @@ const activeStyle = {
 };
 
 function Navbar() {
-const { isLogin, setIsLogin, data } = useContext(AppContext);
+  const { isLogin, setIsLogin, data } = useContext(AppContext);
 
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = useRef();
@@ -70,6 +71,7 @@ const { isLogin, setIsLogin, data } = useContext(AppContext);
       borderBottom="1px solid rgb(27, 27, 27)"
       bg="rgb(15, 6, 23)"
       mt="-2rem"
+     
     >
       <NavLink to="/">
         <Image
@@ -119,16 +121,18 @@ const { isLogin, setIsLogin, data } = useContext(AppContext);
       </Square>
 
       <Spacer />
-      <Input
-        w="370px"
-        color="white"
-        focusBorderColor="purple.500"
-        borderColor="rgb(111, 111, 111)"
-        borderRadius="lg"
-        placeholder="🔍 Search for Movies, Shows, Channels etc. "
-      />
+      <Hide below="lg">
+        <Input
+          w="370px"
+          color="white"
+          focusBorderColor="purple.500"
+          borderColor="rgb(111, 111, 111)"
+          borderRadius="lg"
+          placeholder="🔍 Search for Movies, Shows, Channels etc. "
+        />
+      </Hide>
 
-<SpeechRecog/>
+      <SpeechRecog />
 
       <HStack gap={2}>
         {isLogin ? (
@@ -140,13 +144,11 @@ const { isLogin, setIsLogin, data } = useContext(AppContext);
             Login
           </NavLink>
         )}
-        
-       
-
-       
-        <NavLink className={styles.buy} to="/premiumplan" end>
-          BUY PLAN
-        </NavLink>
+        <Hide below="md">
+          <NavLink className={styles.buy} to="/premiumplan" end>
+            BUY PLAN
+          </NavLink>
+        </Hide>
 
         <Button ref={btnRef} onClick={onOpen} className={styles.butt}>
           <FaBars className={styles.icon} />
@@ -176,10 +178,12 @@ const { isLogin, setIsLogin, data } = useContext(AppContext);
               {" "}
               Plans <ChevronUpIcon className={styles.iconArrowUpP} />
             </Text>
+
             <Link to="/premiumplan" className={styles.white}>
               {" "}
               Buy Plan
             </Link>
+
             <Text className={styles.white}> Have a prepaid code ?</Text>
 
             <Divider />
@@ -204,7 +208,6 @@ const { isLogin, setIsLogin, data } = useContext(AppContext);
           </DrawerContent>
         </Drawer>
       </HStack>
-      
     </Flex>
   );
 }
