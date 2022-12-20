@@ -34,8 +34,7 @@ function Login() {
 
     toast({
       title: `Your One time Pin is ${val}`,
-      position: "bottom-left",
-
+      position: "top",
       isClosable: true,
     });
 
@@ -55,7 +54,7 @@ function Login() {
   return (
     <>
      <Navbar/>
-      <Box mb={7}>
+      <Box mb={7} height="100%" marginTop="2rem">
         <Center>
 
      
@@ -162,7 +161,7 @@ function Login() {
           >
             Login
           </Button>
-          <Text fontSize="sm" color="gray">
+          <Text fontSize="sm" color="gray" className="didNot">
             New to ZEE5?
             <Link to="/signup" onClick={goToSignUp} color="purple">
               Register

@@ -7,6 +7,7 @@ import {
   Text,
   Button,
   useToast,
+  Center,
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { AppContext } from "../Context/AppContext";
@@ -36,6 +37,7 @@ const SignUpOtp = () => {
         title: `Wrong OTP`,
         status: "error",
         isClosable: true,
+        position:"top"
       });
     }
   }
@@ -44,7 +46,8 @@ const SignUpOtp = () => {
     <>
       <Navbar />
 
-      <Box mb={7} height="100%" marginTop="2rem">
+      <Box mb={7} height="100%" pt="2rem" textAlign={'center'}>
+      <Box boxShadow="rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px" w={{lg:"30%",md:"50%",sm:"80%"}} m="5rem auto">
         <Text fontSize="xl" fontWeight="bold" lineHeight="3em">
           Create a new account
         </Text>
@@ -53,16 +56,20 @@ const SignUpOtp = () => {
           <br /> number +91 46834 37839{" "}
           <Link className="Number">Change Number?</Link>
         </Text>
-
+        
+        
         {/* <VStack gap={3}> */}
-        <HStack className="pincode">
+        <Center>
+         <HStack className="pincode" display="inline-block" m='2rem 0'>
           <PinInput onChange={(value) => setPinNumber(value)}>
             <PinInputField />
             <PinInputField />
             <PinInputField />
             <PinInputField />
           </PinInput>
+          
         </HStack>
+        </Center>
         <Text fontSize="sm" color="gray" className="didNot">
           Did not get the OTP? <Link className="Resend">Resend</Link>
         </Text>
@@ -77,6 +84,7 @@ const SignUpOtp = () => {
         >
           Verify
         </Button>
+      </Box>
       </Box>
     </>
   );

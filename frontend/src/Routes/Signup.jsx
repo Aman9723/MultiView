@@ -6,6 +6,7 @@ import {
   VStack,
   Link,
   useToast,
+  Center
 } from "@chakra-ui/react";
 import { useContext, useState } from "react";
 import { FcGoogle } from "react-icons/fc";
@@ -48,13 +49,17 @@ function Signup() {
       
     <Navbar/>
       <Box mb={7} height="100%">
+        <Center>
         <Text fontSize="xl" fontWeight="bold" lineHeight="3em" marginTop="2rem">
           Create a new account
         </Text>
+        </Center>
+        <Center>
         <Text lineHeight="1.2em" color="gray">
           Create an account to continue enjoying <br /> uninterrupted video and
           personalised experience
         </Text>
+        </Center>
         <VStack gap={7} mt={7} mb={4}>
           <Button
             className="sign"
@@ -82,6 +87,7 @@ function Signup() {
         </VStack>
         <VStack gap={3}>
           <Input
+           textAlign={"center"}
             value={text.email}
             onChange={(event) =>
               setText({ ...text, email: event.target.value })
@@ -107,7 +113,8 @@ function Signup() {
             variant="outline"
             borderColor="rgb(111, 111, 111)"
             _hover="transparent"
-            color="gray"
+            color="white"
+            backgroundColor={"green"}
           >
             Send OTP
           </Button>
