@@ -41,6 +41,7 @@ const LoginOtp = () => {
         title: `Wrong OTP`,
         status: "error",
         isClosable: true,
+        position:"top"
       });
     }
   }
