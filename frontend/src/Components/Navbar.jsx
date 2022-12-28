@@ -13,7 +13,7 @@ import {
   Divider,
   Square,
   Img,
-  Hide,
+  Show
 } from "@chakra-ui/react";
 import { Link, NavLink } from "react-router-dom";
 import { FaBars, FaCrown, FaRegUser } from "react-icons/fa";
@@ -41,6 +41,7 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 import SpeechRecog from "./SpeechRecog";
+import logo from "../Images/multiview.png"
 
 const baseStyle = {
   color: "gray",
@@ -55,7 +56,7 @@ const activeStyle = {
 };
 
 function Navbar() {
-  const { isLogin, setIsLogin, data } = useContext(AppContext);
+const { isLogin, setIsLogin, data } = useContext(AppContext);
 
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = useRef();
@@ -71,16 +72,17 @@ function Navbar() {
       borderBottom="1px solid rgb(27, 27, 27)"
       bg="rgb(15, 6, 23)"
       mt="-2rem"
-     
     >
       <NavLink to="/">
         <Image
-          h="47px"
-          src="https://www.zee5.com/images/ZEE5_logo.svg?ver=2.52.15"
+        w="80px"
+          h="30px"
+          src={logo}
           alt="app logo"
           mr={4}
         />
       </NavLink>
+      <Show   breakpoint='(min-width: 700px)'>
       <NavLink
         to="/"
         style={({ isActive }) => (isActive ? activeStyle : baseStyle)}
@@ -108,7 +110,7 @@ function Navbar() {
           <DragHandleIcon boxSize={4} className={styles.dropbtn} />
 
           <div className={styles.dropdownContent}>
-          <Link to="#">Webseries</Link>
+            <Link to="#">Webseries</Link>
             <Link to="#">Eduauraa</Link>
             <Link to="#">Premium</Link>
             <Link to="#">Live Tv</Link>
@@ -119,22 +121,26 @@ function Navbar() {
           </div>
         </ul>
       </Square>
-
+      </Show>
       <Spacer />
-      <Hide below="lg">
-        <Input
-          w="370px"
-          color="white"
-          focusBorderColor="purple.500"
-          borderColor="rgb(111, 111, 111)"
-          borderRadius="lg"
-          placeholder="🔍 Search for Movies, Shows, Channels etc. "
-        />
-      </Hide>
+     
+      <Show   breakpoint='(min-width: 800px)'>
+      <Link to="/search"><Input
+        w={["170px", "270px", "370px"]}
+        color="white"
+        focusBorderColor="purple.500"
+        borderColor="rgb(111, 111, 111)"
+        borderRadius="lg"
+        placeholder="🔍 Search for Movies, Shows, Channels etc."
+        
+      />
+      </Link>
+      </Show>
 
-      <SpeechRecog />
+<SpeechRecog/>
 
       <HStack gap={2}>
+      
         {isLogin ? (
           <Text className={styles.nav} onClick={() => setIsLogin(!isLogin)} end>
             Logout
@@ -144,15 +150,18 @@ function Navbar() {
             Login
           </NavLink>
         )}
-        <Hide below="md">
-          <NavLink className={styles.buy} to="/premiumplan" end>
-            BUY PLAN
-          </NavLink>
-        </Hide>
+        
+       
 
+        <Show   breakpoint='(min-width: 760px)'>
+        <NavLink className={styles.buy} to="/premiumplan" end>
+          BUY PLAN
+        </NavLink>
+        </Show>
         <Button ref={btnRef} onClick={onOpen} className={styles.butt}>
           <FaBars className={styles.icon} />
         </Button>
+        
         <Drawer
           isOpen={isOpen}
           placement="right"
@@ -178,12 +187,10 @@ function Navbar() {
               {" "}
               Plans <ChevronUpIcon className={styles.iconArrowUpP} />
             </Text>
-
             <Link to="/premiumplan" className={styles.white}>
               {" "}
               Buy Plan
             </Link>
-
             <Text className={styles.white}> Have a prepaid code ?</Text>
 
             <Divider />
@@ -208,6 +215,7 @@ function Navbar() {
           </DrawerContent>
         </Drawer>
       </HStack>
+      
     </Flex>
   );
 }

@@ -7,7 +7,6 @@ import {
   Text,
   Button,
   useToast,
-  Center,
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { AppContext } from "../Context/AppContext";
@@ -41,7 +40,6 @@ const LoginOtp = () => {
         title: `Wrong OTP`,
         status: "error",
         isClosable: true,
-        position:"top"
       });
     }
   }
@@ -50,21 +48,17 @@ const LoginOtp = () => {
     <>
       <Navbar />
 
-
-
-      <Box mb={7} height="100%" pt="2rem" textAlign={'center'} >
-        <Box boxShadow="rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px" w={{lg:"30%",md:"50%",sm:"80%"}} m="5rem auto">
-        <Text fontSize="xl" fontWeight="bold" lineHeight="3em">
+      <Box mb={7} height="100%" marginTop="2rem">
+        <Text fontSize="xl" fontWeight="bold" lineHeight="3em" textAlign={"center"}>
           Create a new account
         </Text>
-        <Text lineHeight="1.2em" color="gray">
+        <Text lineHeight="1.2em" color="gray" textAlign={"center"}>
           An OTP has been sent to the entered mobile
           <br /> number +91 46834 37839{" "}
           <Link className="Number">Change Number?</Link>
         </Text>
-      <Center>
 
-        <HStack className="pincode"  display="inline-block" m='2rem 0'>
+        <HStack className="pincode">
           <PinInput onChange={(value) => setPinNumber(value)}>
             <PinInputField />
             <PinInputField />
@@ -73,14 +67,10 @@ const LoginOtp = () => {
           </PinInput>
 
         </HStack>
-        </Center>
-    
-        <Center>
-        <Text fontSize="sm" color="gray" className="didNot">
+        <Text fontSize="sm" color="gray" className="didNot" textAlign={"center"}>
           Did not get the OTP? <Link className="Resend">Resend</Link>
         </Text>
-        </Center>
-        <Center>
+
         <Button
           className="verify"
           onClick={handleOtp}
@@ -88,13 +78,12 @@ const LoginOtp = () => {
           h="47px"
           variant="outline"
           borderColor="rgb(111, 111, 111)"
+          display="block"
+          margin="auto"
         >
           Verify
         </Button>
-      </Center>
       </Box>
-      </Box>
-
     </>
   );
 };

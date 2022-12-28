@@ -10,6 +10,7 @@
   HStack,
   SimpleGrid,
   Spacer,
+  Show,
 } from "@chakra-ui/react";
 import React from "react";
 import { ChevronDownIcon } from "@chakra-ui/icons";
@@ -27,6 +28,7 @@ import "swiper/css/navigation";
 import "swiper/css/scrollbar";
 import "swiper/css";
 import { FaPlay, FaShareAlt } from "react-icons/fa";
+import { IconName, MdBookmark } from "react-icons/md";
 import { NavLink } from "react-router-dom";
 import LatestMovies from "./LastestTest";
 import TopTenMovies from "./TopTenMovies";
@@ -78,10 +80,10 @@ const Movies = () => {
           <Flex color="gray.600">• A</Flex>
         </Flex>
         <br />
-        <Flex as="b" h="80px" w="250px" border="1px solid" gap="10px">
-          <Flex>Share</Flex>
-          <Flex>Wishlist</Flex>
-          <Flex>Watch trailer</Flex>
+        <Flex as="b" h="80px" w="260px" border="1px solid" gap="10px" color="white" justifyContent={"space-evenly"}>
+        <Flex direction={"column"} gap="10px" alignItems={"center"} mt="1rem"><FaShareAlt/>Share</Flex>
+          <Flex direction={"column"} gap="10px" alignItems={"center"} mt="1rem"><MdBookmark/>WishList</Flex>
+          <Flex direction={"column"} gap="10px" alignItems={"center"} mt="1rem"><FaPlay/>Watch trailer</Flex>
         </Flex>
         <br />
         <Flex as="b" gap="10px">
@@ -97,17 +99,21 @@ const Movies = () => {
         <br />
         <br />
         <Menu>
+        <Show   breakpoint='(min-width: 1200px)'>
           <MenuButton
             as={Button}
             bg="none"
             color="white"
             _hover="none"
             rightIcon={<ChevronDownIcon />}
+          
           >
             <Text>In this ZEE5 Original, Gayatri, a woman with a degenerative eye
             disorder, is slowly losing her eyesight.<br/> She, however, has to solve
             the mystery of her twin sister Gautami's death.</Text>
           </MenuButton>
+          </Show>
+          
           <MenuList mb='5rem' bg="black" border='none'>
             <MenuItem bg="black" border="none">
               <Flex direction="column" gap="15px">
@@ -133,7 +139,7 @@ const Movies = () => {
           </MenuList>
         </Menu>
       </div>
-
+      <Show   breakpoint='(min-width: 1200px)'>
       <div className="left">
         
         <Text fontSize="xl">Recommended Movies For You</Text>
@@ -182,6 +188,7 @@ const Movies = () => {
           </SimpleGrid>
         </div>
       </div>
+      </Show>
       </div>
       
       <LatestMovies />

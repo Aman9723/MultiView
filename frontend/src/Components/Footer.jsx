@@ -1,13 +1,18 @@
 import {
   Box,
   Button,
+  Flex,
   HStack,
   Image,
   Spacer,
+  Stack,
   Text,
   VStack,
+  Show,
+  SimpleGrid
 } from "@chakra-ui/react";
 import { FaFacebook, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
+import { Grid } from "swiper";
 import styles from "../Style/Footer.module.css";
 
 function Footer() {
@@ -20,25 +25,30 @@ function Footer() {
       backgroundColor="black"
     >
       <HStack gap={3}>
-        <Text className={styles.footer} fontWeight="bold">
+        <Text className={styles.footer} fontWeight="bold" fontSize={["sx","sm","md"]}>
           Download Apps
         </Text>
         <Image src="https://www.zee5.com/images/play_store.png?ver=2.52.15" />
         <Image src="https://www.zee5.com/images/app_store.png?ver=2.52.15" />
         <Spacer />
-        <Text className={styles.footer} fontWeight="bold">
+        <Show   breakpoint='(min-width: 500px)'>
+
+        <Text className={styles.footer} fontWeight="bold" fontSize={["sx","sm","md"]}>
           Connect with us
         </Text>
+        </Show>
+        <Show   breakpoint='(min-width: 760px)'>
         <HStack gap={1}>
           <Button
             color="blue.500"
             bg="rgb(34, 26, 41)"
             p={3}
             borderRadius="50%"
+            className={styles.gayab}
           >
             <FaFacebook />
           </Button>
-          <Button color="#f24b8f" bg="rgb(34, 26, 41)" p={3} borderRadius="50%">
+          <Button color="#f24b8f" bg="rgb(34, 26, 41)" p={3} borderRadius="50%"  className={styles.gayab}>
             <FaInstagram />
           </Button>
           <Button
@@ -46,13 +56,15 @@ function Footer() {
             bg="rgb(34, 26, 41)"
             p={3}
             borderRadius="50%"
+            className={styles.gayab}
           >
             <FaTwitter />
           </Button>
-          <Button color="red.500" bg="rgb(34, 26, 41)" p={3} borderRadius="50%">
+          <Button color="red.500" bg="rgb(34, 26, 41)" p={3} borderRadius="50%"  className={styles.gayab}> 
             <FaYoutube />
           </Button>
         </HStack>
+        </Show>
       </HStack>
       <HStack my={7} gap={4} color="rgb(111, 111, 111)" fontSize="12px">
         <Box className={styles.footerHover} borderRight="1px solid gray" pr={7}>
@@ -66,7 +78,7 @@ function Footer() {
         </Box>
         <Box className={styles.footerHover}>Terms of Use</Box>
       </HStack>
-      <HStack gap={10} mb={14}>
+      <SimpleGrid gap={10} mb={14} columns={{sm: 2, md: 3, lg:5}}>
         <VStack fontSize="13px" align="start" color="rgb(111, 111, 111)">
           <Text
             className={styles.footer}
@@ -146,9 +158,11 @@ function Footer() {
           <Text className={styles.footerHover}>Salman Khan</Text>
           <Text className={styles.footerHover}>Nora Fatehi</Text>
         </VStack>
-      </HStack>
+      </SimpleGrid>
+      <Show   breakpoint='(min-width: 500px)'>
+
       <Text
-        w="lg"
+        w={["sm","md","lg"]}
         cursor="pointer"
         align="start"
         my={10}
@@ -159,6 +173,8 @@ function Footer() {
         75+, Safari 5.1.5+ <br />
         Copyright © 2022 Zee Entertainment Enterprises Ltd. All rights reserved.
       </Text>
+      </Show> 
+     
     </Box>
   );
 }

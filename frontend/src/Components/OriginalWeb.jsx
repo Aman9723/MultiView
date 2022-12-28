@@ -28,16 +28,32 @@ function OriginalWeb() {
 
   return (
     <>
-      <NavLink to="/PremiumPlan">
+      {/* <NavLink to="/PremiumPlan">
         <Text className={styles.more}>
           More
           <ChevronRightIcon w={6} h={6} color="white" fontWeight="bold" />
         </Text>
-      </NavLink>
+      </NavLink> */}
       <Text className={styles.original}>ZEE5 Original Web Series</Text>
 
       <div className={styles.outer}>
         <Swiper
+          breakpoints={{
+            450:{
+              slidesPerView:2,
+            },
+            500:{
+              slidesPerView:4,
+            },
+            700: {
+              slidesPerView: 5,
+            },
+            800: {
+              slidesPerView: 6,
+            },
+            
+           
+          }}
           className={styles.swiper}
           spaceBetween={0.5}
           slidesPerView={6}
@@ -54,10 +70,12 @@ function OriginalWeb() {
                 </div>
 
                 <div className={styles.share}>
+                <NavLink to="/movies">
                   <Box className={styles.playIcon}>
                     <FaPlay className={styles.play} />
                     <Text className={styles.watch}>Watch</Text>
                   </Box>
+                  </NavLink>
 
                   {/* share icon */}
                   <Box className={styles.lookshare}>

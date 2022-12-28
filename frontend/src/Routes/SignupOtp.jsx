@@ -7,19 +7,33 @@ import {
   Text,
   Button,
   useToast,
-  Center,
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { AppContext } from "../Context/AppContext";
 import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../Components/Navbar";
+import {generateOtp} from "./Signup"
 
 const SignUpOtp = () => {
   const navigate = useNavigate();
   const [pinNumber, setPinNumber] = useState();
-  const { otp } = useContext(AppContext);
+  const { otp, setOtp} = useContext(AppContext);
 
   const toast = useToast();
+
+const resendOtp = () => {
+  const val = generateOtp()
+  setOtp(val)
+  toast({
+    
+    description: `Your NEW OTP ${val}`,
+    position: "top",
+    status: "success",
+    duration: 4000,
+    isClosable: true,
+  });
+}
+
 
   function handleOtp() {
     if (pinNumber == otp) {
@@ -37,7 +51,6 @@ const SignUpOtp = () => {
         title: `Wrong OTP`,
         status: "error",
         isClosable: true,
-        position:"top"
       });
     }
   }
@@ -46,32 +59,27 @@ const SignUpOtp = () => {
     <>
       <Navbar />
 
-      <Box mb={7} height="100%" pt="2rem" textAlign={'center'}>
-      <Box boxShadow="rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px" w={{lg:"30%",md:"50%",sm:"80%"}} m="5rem auto">
-        <Text fontSize="xl" fontWeight="bold" lineHeight="3em">
+      <Box mb={7} height="100%" marginTop="2rem">
+        <Text fontSize="xl" fontWeight="bold" lineHeight="3em" textAlign={"center"}>
           Create a new account
         </Text>
-        <Text lineHeight="1.2em" color="gray">
+        <Text lineHeight="1.2em" color="gray" textAlign={"center"}>
           An OTP has been sent to the entered mobile
           <br /> number +91 46834 37839{" "}
           <Link className="Number">Change Number?</Link>
         </Text>
-        
-        
+
         {/* <VStack gap={3}> */}
-        <Center>
-         <HStack className="pincode" display="inline-block" m='2rem 0'>
+        <HStack className="pincode">
           <PinInput onChange={(value) => setPinNumber(value)}>
             <PinInputField />
             <PinInputField />
             <PinInputField />
             <PinInputField />
           </PinInput>
-          
         </HStack>
-        </Center>
-        <Text fontSize="sm" color="gray" className="didNot">
-          Did not get the OTP? <Link className="Resend">Resend</Link>
+        <Text fontSize="sm" color="gray" className="didNot" textAlign={"center"}>
+          Did not get the OTP? <Link className="Resend" onClick={resendOtp}>Resend</Link>
         </Text>
 
         <Button
@@ -81,10 +89,11 @@ const SignUpOtp = () => {
           h="47px"
           variant="outline"
           borderColor="rgb(111, 111, 111)"
+          display="block"
+          margin="auto"
         >
           Verify
         </Button>
-      </Box>
       </Box>
     </>
   );

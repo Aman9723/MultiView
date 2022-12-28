@@ -10,6 +10,8 @@ import PremiumPlan from '../Components/PremiumPlan';
 import SignUpOtp from './SignupOtp';
 import LoginOtp from './LoginOtp';
 import Payment from '../Components/Payment';
+import Search from "../Components/search";
+import PrivateRoute from "../Components/PrivateRoute";
 
 const AllRoute = () => {
     return (
@@ -22,11 +24,12 @@ const AllRoute = () => {
             <Route path="/signup" element={<Signup />} />
             <Route path="/signupotp" element={<SignUpOtp />} />
 
-            <Route path="/movies" element={<Movies />} />
+            <Route path="/movies" element={<PrivateRoute><Movies /></PrivateRoute>} />
             <Route path="/myprofile" element={<MyProfile />} />
             <Route path="/myprofile/watchlist" element={<MyWatchlist />} />
-            <Route path="/premiumplan" element={<PremiumPlan />} />
+            <Route path="/premiumplan" element={<PrivateRoute><PremiumPlan /></PrivateRoute>} />
             <Route path="/payment" element={<Payment />} />
+            <Route path="/search" element={<Search />} />
         </Routes>
     );
 };

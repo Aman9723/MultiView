@@ -59,14 +59,15 @@ const PremiumPlan = () => {
     console.log(third);
     const OverlayOne = () => (
         <ModalOverlay
-            bg="white"
+            // bg="red"
+            backgroundImage={"https://akamaividz2.zee5.com/image/upload/w_1013,h_405,c_scale,f_webp,q_auto:eco/resources/0-6-4z5145215/cover/1170x658withlogo05d4d0839eca4866a1881b4218b99fad.jpg"}
             backdropFilter="blur(10px) hue-rotate(90deg)"
         />
     );
 
     const OverlayTwo = () => (
         <ModalOverlay
-            bg="none"
+            // bg="none"
             backdropFilter="auto"
             backdropInvert="80%"
             backdropBlur="2px"
@@ -76,17 +77,16 @@ const PremiumPlan = () => {
 
     const { isOpen, onOpen, onClose } = useDisclosure();
     const [overlay, setOverlay] = React.useState(<OverlayOne />);
-    // useEffect(()=>{
-    //     window.location.reload();
-    //     return false;
-    // })
-    window.onload = function() {
-        setOverlay(<OverlayTwo />)
+    useEffect(()=>{
         onOpen();
-    };
+    }, [])
+    // window.onload = function() {
+    //     setOverlay(<OverlayTwo />)
+    //     onOpen();
+    // };
 
     return (
-        <>
+        <Box>
             {/* <Button
                 ml="4"
                 onClick={() => {
@@ -101,7 +101,7 @@ const PremiumPlan = () => {
                 onOpen();
             }; */}
 
-            <Modal size="lg" isCentered isOpen={isOpen} onClose={onClose}>
+            <Modal size="lg" isCentered isOpen={isOpen} onClose={onClose} w="60%" >
                 {overlay}
                 <ModalContent
                     bg="rgb(15,6,23)"
@@ -306,7 +306,7 @@ const PremiumPlan = () => {
                     </ModalFooter>
                 </ModalContent>
             </Modal>
-        </>
+        </Box>
     );
 };
 

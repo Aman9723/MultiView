@@ -9,7 +9,7 @@
 
 .right {
     width: 60%;
-    /* border: 1px solid red; */
+    /* border: 1px solid / */
 }
 
 .left {
@@ -18,4 +18,11 @@
     display: flex;
     flex-direction: column;
     /* border: 1px solid red; */
+}
+
+@media screen and (max-width: 1200px) {
+    .right {
+        width: 100%;
+        /* border: 1px solid white; */
+    }
 }

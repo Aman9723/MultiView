@@ -6,7 +6,6 @@ import {
   VStack,
   Link,
   useToast,
-  Center
 } from "@chakra-ui/react";
 import { useContext, useState } from "react";
 import { FcGoogle } from "react-icons/fc";
@@ -15,15 +14,26 @@ import { AppContext } from "../Context/AppContext";
 import SignUpOtp from "./SignupOtp";
 import Navbar from "../Components/Navbar";
 
+
+// signupotp export
+export const generateOtp = () => {
+  const val = Math.floor(1000 + Math.random() * 9000);
+  return val;
+}
+
+
 function Signup() {
   const navigate = useNavigate();
   const { setData, setOtp } = useContext(AppContext);
   const [text, setText] = useState({ email: "" });
   const toast = useToast();
 
+
+
+
   const handleSignup = () => {
-    const val = Math.floor(1000 + Math.random() * 9000);
     
+    const val = generateOtp()
 
     toast({
       title: `Your One time Pin is ${val}`,
@@ -37,6 +47,9 @@ function Signup() {
     goToOtp();
   };
 
+  
+  
+
   const goToOtp = () => {
     navigate("/signupotp");
   };
@@ -44,22 +57,21 @@ function Signup() {
     navigate("/login");
   };
 
+
+
+
   return (
     <>
       
     <Navbar/>
       <Box mb={7} height="100%">
-        <Center>
-        <Text fontSize="xl" fontWeight="bold" lineHeight="3em" marginTop="2rem">
+        <Text fontSize="xl" fontWeight="bold" lineHeight="3em" marginTop="2rem" textAlign={"center"}>
           Create a new account
         </Text>
-        </Center>
-        <Center>
-        <Text lineHeight="1.2em" color="gray">
+        <Text lineHeight="1.2em" color="gray" textAlign={"center"}>
           Create an account to continue enjoying <br /> uninterrupted video and
           personalised experience
         </Text>
-        </Center>
         <VStack gap={7} mt={7} mb={4}>
           <Button
             className="sign"
@@ -87,7 +99,6 @@ function Signup() {
         </VStack>
         <VStack gap={3}>
           <Input
-           textAlign={"center"}
             value={text.email}
             onChange={(event) =>
               setText({ ...text, email: event.target.value })
@@ -113,8 +124,7 @@ function Signup() {
             variant="outline"
             borderColor="rgb(111, 111, 111)"
             _hover="transparent"
-            color="white"
-            backgroundColor={"green"}
+            color="gray"
           >
             Send OTP
           </Button>

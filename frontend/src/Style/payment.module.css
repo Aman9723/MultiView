@@ -2,27 +2,9 @@
     width: 100%;
     background-color: rgb(244,244,244);
     /* border: 10px solid black; */
+    height: auto;
 }
-.head{
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    height: 18vh;
-    background-color: black;
-}
-.head>img{
- margin-left: 50px;
- width: 100px;
- height: 100px;
-}
-.user{
-    display: flex;
-    width: 200px;
-    height: 70px;
-    /* border: 1px solid white; */
-    margin-top: 15px;
-    margin-right: 100px;
-}
+
 .midhead{
     width: 100%;
     height: 100px;
@@ -92,6 +74,7 @@
     height: 70%;
     background-color: rgb(255,255,255);
     margin-top: 25px;
+    
 }
 .insideMidPart{
     width: 95%;
@@ -110,6 +93,7 @@
     height: 100%;
     background-color: rgb(255,255,255);
 }
+
 .firstpart>button{
    font-size: 20px;
    font-weight: 500;
@@ -164,3 +148,30 @@
     height: 18vh;
     background-color: black;
 }
+@media screen and (max-width:1000px) {
+    
+
+form {
+    height: max-content;
+    /* border: 1px solid blue; */
+}
+
+}
+@media screen and (max-width: 1200px) {
+    .midpart {
+      height: auto;
+    }
+  }
+@media screen and (min-width: 80em) {
+    .Input {
+      width: 30%;
+      margin: auto;
+    }
+  }
+
+  @media screen and (min-width: 40em) {
+    .Input {
+      width: 30%;
+      margin: auto;
+    }
+  }

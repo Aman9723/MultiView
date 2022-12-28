@@ -1,3 +1,6 @@
+
+
+
 import axios from "axios";
 import React from "react";
 import styles from "../Style/LatestTest.module.css";
@@ -7,13 +10,15 @@ import "swiper/css/scrollbar";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { FaPlay, FaShareAlt } from "react-icons/fa";
-import { Box, Text, HStack } from "@chakra-ui/react";
-import { NavLink } from "react-router-dom";
+import { Box, Text, HStack, Link } from "@chakra-ui/react";
+
 import { ChevronRightIcon } from "@chakra-ui/icons";
+import { NavLink } from "react-router-dom";
+import { Carousel } from "react-responsive-carousel";
 
 SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
 
-function LatestMovies() {
+function LeadingLadies() {
   const getData = () => {
     return axios.get(
       "https://fake-restful-api.onrender.com/zeeLatest"
@@ -28,19 +33,37 @@ function LatestMovies() {
 
   return (
     <>
-      {/* <NavLink to="/PremiumPlan">
+      {/* <NavLink to="/movies">
         <Text className={styles.more}>
           More
           <ChevronRightIcon w={6} h={6} color="white" fontWeight="bold" />
         </Text>
       </NavLink> */}
-      <Text className={styles.latest}>Latest Movies on ZEE5</Text>
+      <Text className={styles.latest}>Latest movies</Text>
+      
 
       <div className={styles.outer}>
+      
         <Swiper
+          breakpoints={{
+            450:{
+              slidesPerView:2,
+            },
+            500:{
+              slidesPerView:4,
+            },
+            700: {
+              slidesPerView: 5,
+            },
+            800: {
+              slidesPerView: 6,
+            },
+            
+           
+          }}
           className={styles.swiper}
           spaceBetween={0.5}
-          slidesPerView={6}
+          slidesPerView={1}
           navigation
           scrollbar={{ draggable: true }}
           onSlideChange={() => console.log("slide change")}
@@ -54,10 +77,12 @@ function LatestMovies() {
                 </div>
 
                 <div className={styles.share}>
-                  <Box className={styles.playIcon}>
+                <NavLink to="/movies">
+                    <Box className={styles.playIcon}>
                     <FaPlay className={styles.play} />
                     <Text className={styles.watch}>Watch</Text>
                   </Box>
+                  </NavLink>
 
                   {/* share icon */}
                   <Box className={styles.lookshare}>
@@ -76,9 +101,17 @@ function LatestMovies() {
             </SwiperSlide>
           ))}
         </Swiper>
+      
       </div>
     </>
   );
 }
 
-export default LatestMovies;
+export default LeadingLadies;
+
+
+
+
+
+
+

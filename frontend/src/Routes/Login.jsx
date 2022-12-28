@@ -10,7 +10,6 @@ import {
   WrapItem,
   Wrap,
   useToast,
-  Center,
 } from "@chakra-ui/react";
 import { FcGoogle } from "react-icons/fc";
 import { DiApple } from "react-icons/di";
@@ -34,7 +33,8 @@ function Login() {
 
     toast({
       title: `Your One time Pin is ${val}`,
-      position: "top",
+      position: "bottom-left",
+
       isClosable: true,
     });
 
@@ -54,22 +54,14 @@ function Login() {
   return (
     <>
      <Navbar/>
-      <Box mb={7} height="100%" marginTop="2rem">
-        <Center>
-
-     
-        <Text fontSize="xl" fontWeight="bold" lineHeight="3em" marginTop="2rem">
+      <Box mb={7}>
+        <Text fontSize="xl" fontWeight="bold" lineHeight="3em" marginTop="2rem" textAlign={"center"}>
           Login to ZEE5
         </Text>
-        </Center>
-        <Center>
-        <Text lineHeight="1.2em" color="gray">
+        <Text lineHeight="1.2em" color="gray" textAlign={"center"}>
           Login to continue enjoying uninterrupted video and <br /> personalised
           experience
-          
         </Text>
-        </Center>
-       
         <VStack gap={7} mt={7} mb={4}>
           <HStack gap={4}>
             <Flex
@@ -126,14 +118,12 @@ function Login() {
             fontWeight="bold"
             pb={1}
             color="white"
-            
           >
             or
           </Button>
         </VStack>
         <VStack gap={4}>
           <Input
-          textAlign={"center"}
             value={text.email}
             onChange={(event) =>
               setText({ ...text, email: event.target.value })
@@ -156,12 +146,11 @@ function Login() {
             variant="outline"
             borderColor="rgb(111, 111, 111)"
             _hover="transparent"
-            color="white"
-            backgroundColor={"green"}
+            color="gray"
           >
             Login
           </Button>
-          <Text fontSize="sm" color="gray" className="didNot">
+          <Text fontSize="sm" color="gray">
             New to ZEE5?
             <Link to="/signup" onClick={goToSignUp} color="purple">
               Register
